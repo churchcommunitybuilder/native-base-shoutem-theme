@@ -112,7 +112,7 @@ export default (
       );
     }
 
-    class StyledComponent extends React.Component {
+    class StyledComponent extends React.PureComponent {
       static contextTypes = {
         theme: ThemeShape,
         // The style inherited from the parent
