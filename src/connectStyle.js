@@ -311,7 +311,7 @@ export default (
       resolveAddedProps() {
         const addedProps = {};
         if (options.withRef) {
-          addedProps.ref = "wrappedInstance";
+          addedProps.ref = this.setWrappedInstance;
         }
         return addedProps;
       }
@@ -372,20 +372,13 @@ export default (
       }
 
       render() {
-        // console.log('themeCache', themeCache);
-
-        // if(componentStyleName == 'NativeBase.Text') {
-        //   console.log(this.state.style);
-        //   console.log(themeCache);
-        // }
-
         const { addedProps, style } = this.state;
+
         return (
           <WrappedComponent
             {...this.props}
             {...addedProps}
             style={style}
-            ref={this.setWrappedInstance}
           />
         );
       }

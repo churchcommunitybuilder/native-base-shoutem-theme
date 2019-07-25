@@ -311,7 +311,7 @@ return _.uniq(mapPropsToStyleNames(styleNames,props));
 {
 var addedProps={};
 if(options.withRef){
-addedProps.ref="wrappedInstance";
+addedProps.ref=this.setWrappedInstance;
 }
 return addedProps;
 }},{key:"getOrSetStylesInCache",value:function getOrSetStylesInCache(
@@ -372,20 +372,13 @@ componentStyle;
 }},{key:"render",value:function render()
 
 {var _state=
-
-
-
-
-
-
-
 this.state,addedProps=_state.addedProps,style=_state.style;
+
 return(
 _react2.default.createElement(WrappedComponent,_extends({},
 this.props,
 addedProps,{
-style:style,
-ref:this.setWrappedInstance,__source:{fileName:_jsxFileName,lineNumber:384}})));
+style:style,__source:{fileName:_jsxFileName,lineNumber:378}})));
 
 
 }}]);return StyledComponent;}(_react2.default.PureComponent);StyledComponent.contextTypes={theme:_Theme.ThemeShape,parentPath:_propTypes2.default.array};StyledComponent.childContextTypes={parentPath:_propTypes2.default.array};StyledComponent.propTypes={style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),styleName:_propTypes2.default.string,virtual:_propTypes2.default.bool};StyledComponent.defaultProps={virtual:options.virtual};StyledComponent.displayName="Styled("+componentDisplayName+")";StyledComponent.WrappedComponent=WrappedComponent;
