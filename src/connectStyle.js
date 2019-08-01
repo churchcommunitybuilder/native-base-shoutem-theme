@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
 import * as _ from 'lodash';
-import normalizeStyle from './StyleNormalizer/normalizeStyle';
-import { StyleSheet } from "react-native";
 
 import Theme, { ThemeShape } from "./Theme";
 import { resolveComponentStyle } from "./resolveComponentStyle";
@@ -319,7 +317,7 @@ export default (
       resolveAddedProps() {
         const addedProps = {};
         if (options.withRef) {
-          addedProps.ref = this.setWrappedInstance;
+          addedProps.ref = "wrappedInstance";
         }
         return addedProps;
       }
@@ -387,6 +385,7 @@ export default (
             {...this.props}
             {...addedProps}
             style={style}
+            ref={this.setWrappedInstance}
           />
         );
       }
