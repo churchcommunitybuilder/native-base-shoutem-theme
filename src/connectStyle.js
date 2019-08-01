@@ -1,14 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import hoistStatics from "hoist-non-react-statics";
-import * as _ from "lodash";
-import normalizeStyle from "./StyleNormalizer/normalizeStyle";
+import React from 'react';
+import PropTypes from 'prop-types';
+import hoistStatics from 'hoist-non-react-statics';
+import * as _ from 'lodash';
+import normalizeStyle from './StyleNormalizer/normalizeStyle';
 import { StyleSheet } from "react-native";
 
 import Theme, { ThemeShape } from "./Theme";
 import { resolveComponentStyle } from "./resolveComponentStyle";
 
-const themeCache = {};
+let themeCache = {};
+
+/**
+ * clear theme cache
+ * @export
+ */
+export function clearThemeCache() {
+  themeCache = {};
+}
 
 /**
  * Formats and throws an error when connecting component style with the theme.
@@ -242,7 +250,7 @@ export default (
         };
       }
 
-      componentWillReceiveProps(nextProps, nextContext) {
+      UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
         const styleNames = this.getStyleNames(nextProps);
         const style = nextProps.style;
         if (this.shouldRebuildStyle(nextProps, nextContext, styleNames)) {
